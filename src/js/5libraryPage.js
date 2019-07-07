@@ -5,25 +5,11 @@ const buttonQueue = document.querySelector('.library__btn--queue');
 // buttonWatch.addEventListener('click', drawWatchedFilmList);
 // buttonQueue.addEventListener('click', drawQueueFilmList);
 
-// ============
-const settings = [{
-    poster_path: 'dark',
-    title: "cvjfsdkjg",
-    id: 1,
-    vote_average: 7.5
-},
-{
-    poster_path: 'fgdf',
-    title: "fgfdg",
-    id: 4,
-    vote_average: 56
-}];
-
-localStorage.setItem("settings", JSON.stringify(settings));
-
-// ==========
 
 function drawWatchedFilmList(ev) {
+    buttonWatch.classList.add('library__btn--active');
+    buttonQueue.classList.remove('library__btn--active');
+
     if (ev.target.nodeName != 'BUTTON') return;
 
     const local = JSON.parse(localStorage.getItem('settings'));
@@ -34,7 +20,6 @@ function drawWatchedFilmList(ev) {
 
 function drawQueueFilmList(ev) {
     
-
     buttonWatch.classList.remove('library__btn--active');
     buttonQueue.classList.add('library__btn--active');
 
@@ -46,6 +31,7 @@ function drawQueueFilmList(ev) {
 }
 
 function createLibraryCardFunc(imgPath, filmTitle, movieId, voteAverage) {
+    
     const li = document.createElement('li');
     li.classList.add('library__list-item');
     cardLibrary.append(li);

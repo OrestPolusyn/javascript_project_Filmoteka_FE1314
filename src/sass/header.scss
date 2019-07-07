@@ -10,8 +10,6 @@
   border: none;
 }
 
-
-
 .header-page {
   padding: 24px 0;
   display: flex;
@@ -28,7 +26,7 @@
   text-decoration: none;
 }
 
-.header__container {
+.header-container {
   display: flex;
   justify-content: space-between;
   width: 270px;
@@ -61,16 +59,26 @@
     padding-right: 10px;
   }
 
-  .header__container {
-    width: 700px;
+  .header-container {
+    width: 800px;
     align-items: center;
     margin: 0 auto;
     padding: 0;
   }
-}
+
+  .header-logo {
+    display: flex;
+  }
+
+  .header__imageLogo {
+    width: 30px;
+    height: 30px;
+
+  }
+ }
 
 @media (min-width: 1024px) {
-  .header__container {
+  .header-container {
     width: 946px;
   }
 }
