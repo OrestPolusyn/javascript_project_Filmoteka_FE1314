@@ -31,7 +31,7 @@ function createCards(name, imgPath, year, movieId) {
 
   const img = document.createElement('img');
   img.classList.add('homePage__img');
-  img.setAttribute('src', `https:/image.tmdb.org/t/p/w500${imgPath}`);
+  img.setAttribute('src', `https://image.tmdb.org/t/p/w500${imgPath}`);
 
   const movieName = document.createElement('p');
   movieName.classList.add('homePage__movieName');

@@ -29,7 +29,7 @@ function createCards(name, imgPath, year, movieId) {
   item.classList.add('homePage__filmItem');
   var img = document.createElement('img');
   img.classList.add('homePage__img');
-  img.setAttribute('src', "https:/image.tmdb.org/t/p/w500".concat(imgPath));
+  img.setAttribute('src', "https://image.tmdb.org/t/p/w500".concat(imgPath));
   var movieName = document.createElement('p');
   movieName.classList.add('homePage__movieName');
   var res = getYearFromDate(year);
