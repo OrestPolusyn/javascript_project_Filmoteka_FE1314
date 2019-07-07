@@ -43,12 +43,16 @@ function createCards(name, imgPath, year, movieId) {
   movieName.textContent = `${name} (${res})`;
 
   item.append(img, movieName);
+
+  // item.addEventListener('click', ()
+  //   => activeDetailsPage(movieId, false));
+
   return item;
-    item.addEventListener('click', activeDetailsPage);
+
 }
 
-function getYearFromDate(string){
-  const res = string.slice(0,4);
+function getYearFromDate(string) {
+  const res = string.slice(0, 4);
   return res
 }
 
@@ -62,7 +66,7 @@ function getPopularMovies() {
     .then(data => {
       console.log(data);
       data.results.forEach(el => {
-        fragment.append(createCards(el.title, el.backdrop_path,el.release_date, el.id));
+        fragment.append(createCards(el.title, el.backdrop_path, el.release_date, el.id));
       });
       list.append(fragment);
       renderFilms = data.results;
@@ -90,16 +94,17 @@ function fetchMovies() {
       if (data.results.length < 1) {
         popWhenError.classList.remove('main__hidden');
       }
-      else{
+      else {
         popWhenError.classList.add('main__hidden');
       }
       console.log(data);
-      data.results.forEach(el =>{
-          console.log(createCards(el.title, el.backdrop_path, el.id));
-        fragment.append(createCards(el.title, el.backdrop_path, el.id))},
+      data.results.forEach(el => {
+        console.log(createCards(el.title, el.backdrop_path, el.id));
+        fragment.append(createCards(el.title, el.backdrop_path, el.id))
+      },
       );
       list.append(fragment);
-    //   console.log(list);
+      //   console.log(list);
       renderFilms = data.results;
     })
     .catch(err => console.log(err));
@@ -122,7 +127,7 @@ function plaginationNavigation(e) {
   } else {
     prevBtn.classList.remove('transparent');
   }
-  if(homePlaginationNumber.textContent <= 1){
+  if (homePlaginationNumber.textContent <= 1) {
     prevBtn.disabled = true;
   }
   console.log(pageNumber);
