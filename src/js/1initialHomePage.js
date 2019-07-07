@@ -46,8 +46,7 @@ function createCards(name, imgPath, year, movieId) {
 
   item.append(img, movieName);
 
-  // item.addEventListener('click', ()
-  //   => activeDetailsPage(movieId, false));
+  item.addEventListener('click', () => activeDetailsPage(movieId, false));
 
   return item;
 
@@ -101,8 +100,8 @@ function fetchMovies() {
       }
       console.log(data);
       data.results.forEach(el => {
-        console.log(createCards(el.title, el.backdrop_path, el.id));
-        fragment.append(createCards(el.title, el.backdrop_path, el.id))
+        // console.log(createCards(el.title, el.backdrop_path, el.id));
+        fragment.append(createCards(el.title, el.backdrop_path, el.release_date, el.id))
       },
       );
       list.append(fragment);

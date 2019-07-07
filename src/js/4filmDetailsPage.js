@@ -42,8 +42,7 @@ function monitorButtonStatusText() {
   if (hasMovie(filmsQueue)) {
     iconQueue.href = './images/sprite.svg#icon-calendar-minus';
     btnToQueue.textContent = 'Delete from queue';
-  }
-  else {
+  } else {
     iconQueue.href = './images/sprite.svg#icon-calendar-plus';
     btnToQueue.textContent = 'Add to queue';
   }
@@ -51,8 +50,7 @@ function monitorButtonStatusText() {
   if (hasMovie(filmsWatched)) {
     iconWatched.href = './images/sprite.svg#icon-trash-alt';
     btnToWatched.textContent = 'Delete from watched';
-  }
-  else {
+  } else {
     iconWatched.href = './images/sprite.svg#icon-video';
     btnToWatched.textContent = 'Add to watched';
   }
@@ -87,7 +85,7 @@ function showDetails(selectFilm) {
 <h2 class="film-card__title"> ${
       selectFilm.title
     }<span class="film-card__release">${
-      selectFilm.release_date.splite('-')[0]
+      selectFilm.release_date.split('-')[0]
     }</span></h2>
       <ul class="film-card__info-list info-list">
         <li class="info-list__item">
@@ -135,7 +133,7 @@ function showDetails(selectFilm) {
   </div>`,
   );
 
-    monitorButtonStatusText();
+  monitorButtonStatusText();
 }
 
 function hasMovie(key) {
@@ -144,7 +142,3 @@ function hasMovie(key) {
   );
   return !!film;
 }
-
-
-
-
