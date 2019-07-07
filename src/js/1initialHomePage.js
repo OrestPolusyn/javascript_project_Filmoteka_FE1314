@@ -19,7 +19,7 @@ function fetchGenres() {
     .then(res => res.json())
     .then(data => {
       genres = data.genres;
-      console.log('genres 1', genres);
+      // console.log('genres 1', genres);
 
     })
     .catch(err => console.log(err));
@@ -65,7 +65,6 @@ function getPopularMovies() {
   )
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       data.results.forEach(el => {
         fragment.append(createCards(el.title, el.backdrop_path, el.release_date, el.id));
       });
@@ -78,7 +77,6 @@ getPopularMovies();
 
 function searchFilms(e) {
   e.preventDefault();
-  //   console.log(input.value);
   inputValue = input.value;
   fetchMovies();
   form.reset();
@@ -98,7 +96,6 @@ function fetchMovies() {
       else {
         popWhenError.classList.add('main__hidden');
       }
-      console.log(data);
       data.results.forEach(el => {
         console.log(createCards(el.title, el.backdrop_path, el.id));
         fragment.append(createCards(el.title, el.backdrop_path, el.id))

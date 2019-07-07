@@ -12,7 +12,7 @@ function drawWatchedFilmList(ev) {
 
     if (ev.target.nodeName != 'BUTTON') return;
 
-    const local = JSON.parse(localStorage.getItem('settings'));
+    const local = JSON.parse(localStorage.getItem('filmsWatched'));
     local.forEach(el =>
         createLibraryCardFunc(el.poster_path, el.title, el.id, el.vote_average),
     );
@@ -50,5 +50,4 @@ function createLibraryCardFunc(imgPath, filmTitle, movieId, voteAverage) {
     titleFilm.classList.add('library__nameFilm');
     li.append(titleFilm);
     titleFilm.textContent = filmTitle;
-    console.log(cardLibrary);
 }

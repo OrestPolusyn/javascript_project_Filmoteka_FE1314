@@ -40,15 +40,17 @@ function activeDetailsPage(movieId, itsLibraryFilm) {
   myLibraryPage.classList.add('main__hidden');
 
   if (itsLibraryFilm) {
-    if (localStorage.filmsQueue) {
-      selectFilm = localStorage.filmsQueue.find(el => el.id === movieId);
+    let allLocalStorageFilms = [];
+    if (localStorage.getItem('filmsQueue') !== null) {
+      allLocalStorageFilms.push(...JSON.parse(localStorage.getItem('filmsQueue')));
     }
-    else {
-      selectFilm = localStorage.filmsWatched.find(el => el.id === movieId);
+    if (localStorage.getItem('filmsWatched') !== null) {
+      allLocalStorageFilms.push(...JSON.parse(localStorage.getItem('filmsWatched')));
     }
+    selectFilm = allLocalStorageFilms.find(el => el.id === movieId);
+  } else {
+    selectFilm = renderFilms.find(el => el.id === movieId);
   }
-  selectFilm = renderFilms.find(el => el.id === movieId);
+
   showDetails(selectFilm);
- 
- console.log(activeDetailsPage(movieId));
 }

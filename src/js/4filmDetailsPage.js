@@ -1,3 +1,5 @@
+const detalis = document.querySelector('.detalisPage__block');
+
 const LOCALSTORAGE = (w => {
   if (!w) return;
 
@@ -78,11 +80,12 @@ function toggleToWatche() {
 }
 
 function showDetails(selectFilm) {
-  const detalis = document.querySelector('.detalisPage__block');
+  detalis.innerHTML = "";
+  const imagePosterPath = `https://image.tmdb.org/t/p/w500/${selectFilm.poster_path}`;
   detalis.insertAdjacentHTML(
     'afterbegin',
     `<div class="film-card">
-    <img src=${selectFilm.poster_path} alt="film-img" class="film-card__img">
+    <img src=${imagePosterPath} alt="film-img" class="film-card__img">
     <div class="film-card__details">
 <h2 class="film-card__title"> ${
       selectFilm.title
@@ -107,9 +110,7 @@ function showDetails(selectFilm) {
           <p class="info-list__value">${genres.filter(el =>
             selectFilm.genre_ids
               .find(item => el.id === item)
-              .reduce((acc, el) => acc + `${el.name} `),
-          )}</p>
-
+          ).reduce((acc, el) => acc + `${el.name} `, '')}</p>
         </li>
       </ul>
       <div class="film-card__about about">
@@ -135,11 +136,11 @@ function showDetails(selectFilm) {
   </div>`,
   );
 
-    monitorButtonStatusText();
+    // monitorButtonStatusText();
 }
 
 function hasMovie(key) {
-  const film = LOCALSTORAGE.get(key).find(
+  const film = localStorage.get(key).find(
     item => item.movieId === selectFilm.movieId,
   );
   return !!film;
