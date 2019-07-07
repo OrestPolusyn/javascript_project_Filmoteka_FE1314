@@ -19,7 +19,8 @@ function fetchGenres() {
     .then(res => res.json())
     .then(data => {
       genres = data.genres;
-      console.log("genres", genres);
+      console.log('genres 1', genres);
+
     })
     .catch(err => console.log(err));
 }
@@ -45,16 +46,11 @@ function createCards(name, imgPath, year, movieId) {
 
   item.append(img, movieName);
 
-<<<<<<< HEAD
-  item.addEventListener('click', () => activeDetailsPage(movieId, false));
-  return item;
-=======
   // item.addEventListener('click', ()
   //   => activeDetailsPage(movieId, false));
 
   return item;
 
->>>>>>> fixtask3,5
 }
 
 function getYearFromDate(string) {
@@ -104,16 +100,10 @@ function fetchMovies() {
         popWhenError.classList.add('main__hidden');
       }
       console.log(data);
-<<<<<<< HEAD
-      data.results.forEach(el =>{
-          // console.log(createCards(el.title, el.backdrop_path, el.id));
-        fragment.append(createCards(el.title, el.backdrop_path, el.release_date, el.id))},
-=======
       data.results.forEach(el => {
         console.log(createCards(el.title, el.backdrop_path, el.id));
         fragment.append(createCards(el.title, el.backdrop_path, el.id))
       },
->>>>>>> fixtask3,5
       );
       list.append(fragment);
       //   console.log(list);
