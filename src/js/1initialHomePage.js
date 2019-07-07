@@ -44,7 +44,7 @@ function createCards(name, imgPath, year, movieId) {
 
   item.append(img, movieName);
   return item;
-  //   item.addEventListener('click', activeDetailsPage);
+    item.addEventListener('click', activeDetailsPage);
 }
 
 function getYearFromDate(string){
