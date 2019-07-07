@@ -97,8 +97,8 @@ function fetchMovies() {
         popWhenError.classList.add('main__hidden');
       }
       data.results.forEach(el => {
-        console.log(createCards(el.title, el.backdrop_path, el.id));
-        fragment.append(createCards(el.title, el.backdrop_path, el.id))
+        // console.log(createCards(el.title, el.backdrop_path, el.id));
+        fragment.append(createCards(el.title, el.backdrop_path, el.release_date, el.id))
       },
       );
       list.append(fragment);

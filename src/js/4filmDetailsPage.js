@@ -1,81 +1,64 @@
 const detalis = document.querySelector('.detalisPage__block');
 
-const LOCALSTORAGE = (w => {
-  if (!w) return;
-
-  const isActive = 'localStorage' in w;
-
-  const get = key => {
-    try {
-      const serializedState = localStorage.getItem(key);
-      return serializedState ? JSON.parse(serializedState) : null;
-    } catch (error) {
-      console.error('Get state error: ', error);
-    }
-  };
-
-  const set = (key, value) => {
-    try {
-      const serializedState = JSON.stringify(value);
-      localStorage.setItem(key, serializedState);
-    } catch (error) {
-      console.error('Set state error: ', error);
-    }
-  };
-
-  const publicAPI = {
-    isActive,
-    get,
-    set,
-  };
-
-  return publicAPI;
-})(window);
-
 function monitorButtonStatusText() {
-  const btnQueue = document.querySelector('#queue');
-  const iconQueue = btnQueue.querySelector('.js-svg');
-  const btnToQueue = btnQueue.querySelector('.js-to-queue');
+  const iconQueue = document.querySelector('.film-card__icon');
+  const btnToQueue = document.querySelector('.js-to-queue');
 
-  const btnWatched = document.querySelector('#watched');
-  const iconWatched = btnWatched.querySelector('.js-svg');
-  const btnToWatched = btnWatched.querySelector('.js-to-watched');
+  const iconWatched = document.querySelector('.film-card__icon');
+  const btnToWatched = document.querySelector('.js-to-watched');
 
-  if (hasMovie(filmsQueue)) {
-    iconQueue.href = './images/sprite.svg#icon-calendar-minus';
-    btnToQueue.textContent = 'Delete from queue';
+  let lsWatchedList = JSON.parse(localStorage.getItem('filmsWatched'));
+  if (lsWatchedList !== null) {
+    if (lsWatchedList.find(el => el.id === selectFilm.id)) {
+      iconWatched.textContent = "&minus;";
+      btnToWatched.textContent = 'Delete from watched';
+    } else {
+      iconWatched.textContent = "&#127909;";
+      btnToWatched.textContent = 'Add to watched';
+    }
   }
-  else {
-    iconQueue.href = './images/sprite.svg#icon-calendar-plus';
-    btnToQueue.textContent = 'Add to queue';
-  }
-
-  if (hasMovie(filmsWatched)) {
-    iconWatched.href = './images/sprite.svg#icon-trash-alt';
-    btnToWatched.textContent = 'Delete from watched';
-  }
-  else {
-    iconWatched.href = './images/sprite.svg#icon-video';
-    btnToWatched.textContent = 'Add to watched';
+ 
+  let lsQueueList = JSON.parse(localStorage.getItem('filmsQueue'));
+  if (lsQueueList !== null) {
+    if (lsQueueList.find(el => el.id === selectFilm.id)) {
+      iconQueue.textContent = "&minus;";
+      btnToQueue.textContent = 'Delete from queue';
+    } else {
+      iconQueue.textContent = "&plus;";
+      btnToQueue.textContent = 'Add to queue';
+    }
   }
 }
 
-function toggleTo(key) {
-  const films = LOCALSTORAGE.get(key);
-  if (hasMovie(key)) {
-    films = films.filter(item => item.movieId !== selectFilm.movieId);
-  } else films.push(selectFilm);
-
-  LOCALSTORAGE.set(key, films);
-}
-
-function toggleToQueue() {
-  toggleTo(filmsQueue);
+function toggleToWatched() {
+  monitorButtonStatusText();
+  let watchedList = [];
+  let lsWatchedList = JSON.parse(localStorage.getItem('filmsWatched'));
+  if (lsWatchedList !== null) {
+    watchedList = [...lsWatchedList];
+  } 
+  if (watchedList.find(el => el.id === selectFilm.id)) {
+    watchedList = watchedList.filter(el => el.id !== selectFilm.id);
+  } else {
+    watchedList.push(selectFilm);
+  }
+  localStorage.setItem('filmsWatched', JSON.stringify(watchedList));
   monitorButtonStatusText();
 }
 
-function toggleToWatche() {
-  toggleTo(filmsWatched);
+function toggleToQueue() {
+  monitorButtonStatusText();
+  let queueList = [];
+  let lsQueueList = JSON.parse(localStorage.getItem('filmsQueue'));
+  if (lsQueueList !== null) {
+    queueList = [...lsQueueList];
+  } 
+  if (queueList.find(el => el.id === selectFilm.id)) {
+    queueList = queueList.filter(el => el.id !== selectFilm.id);
+  } else {
+    queueList.push(selectFilm);
+  }
+  localStorage.setItem('filmsQueue', JSON.stringify(queueList));
   monitorButtonStatusText();
 }
 
@@ -118,17 +101,13 @@ function showDetails(selectFilm) {
         <p class="film-card__text">${selectFilm.overview}</p>
       </div>
       <ul class="film-card__btn-list">
-        <li class="btn-list__item" id="watched">
-          <svg class="btn__svg">
-            <use href="./images/sprite.svg#icon-video" class="js-svg"></use>
-          </svg>
+        <li class="btn-list__item" id="watch">
+        <span class="film-card__icon"></span>
           <button type="button" class="btn btn__to-watch js-to-watched" data-action="add" id="watch">Add to watched</button>
         </li>
 
         <li class="btn-list__item" id="queue">
-          <svg class="btn__svg">
-            <use href="./images/sprite.svg#icon-calendar-plus" class="js-svg"></use>
-          </svg>
+          <span class="film-card__icon"></span>
           <button type="button" class="btn btn__to-queue js-to-queue">Add to queue</button>
         </li>
       </ul>
@@ -136,16 +115,6 @@ function showDetails(selectFilm) {
   </div>`,
   );
 
-    // monitorButtonStatusText();
+  monitorButtonStatusText();
 }
-
-function hasMovie(key) {
-  const film = localStorage.get(key).find(
-    item => item.movieId === selectFilm.movieId,
-  );
-  return !!film;
-}
-
-
-
 

@@ -90,6 +90,15 @@
   }
 }
 
+.film-card__icon {
+  color: #77c1bb;
+}
+
+.btn-list__item {
+  width: 200px;
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   .film-card {
     // padding: 0 23px;

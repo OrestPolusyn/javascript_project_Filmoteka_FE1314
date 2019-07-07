@@ -43,14 +43,18 @@ function activeDetailsPage(movieId, itsLibraryFilm) {
     let allLocalStorageFilms = [];
     if (localStorage.getItem('filmsQueue') !== null) {
       allLocalStorageFilms.push(...JSON.parse(localStorage.getItem('filmsQueue')));
-    }
+    };
     if (localStorage.getItem('filmsWatched') !== null) {
       allLocalStorageFilms.push(...JSON.parse(localStorage.getItem('filmsWatched')));
-    }
+    };
     selectFilm = allLocalStorageFilms.find(el => el.id === movieId);
   } else {
     selectFilm = renderFilms.find(el => el.id === movieId);
   }
-
   showDetails(selectFilm);
+
+  const buttonAddRemoveToWatched = document.querySelector('#watch');
+  const buttonAddRemoveToQueue = document.querySelector('#queue');
+  buttonAddRemoveToWatched.addEventListener('click', toggleToWatched);
+  buttonAddRemoveToQueue.addEventListener('click', toggleToQueue);
 }
