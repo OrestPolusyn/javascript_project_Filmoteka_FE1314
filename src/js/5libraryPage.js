@@ -5,7 +5,6 @@ const buttonQueue = document.querySelector('.library__btn--queue');
 buttonWatch.addEventListener('click', drawWatchedFilmList);
 buttonQueue.addEventListener('click', drawQueueFilmList);
 
-// ============
 const settings = [{
     poster_path: 'dark',
     title: "cvjfsdkjg",
@@ -21,9 +20,12 @@ const settings = [{
 
 localStorage.setItem("settings", JSON.stringify(settings));
 
-// ==========
 
 function drawWatchedFilmList(ev) {
+
+    buttonWatch.classList.add('library__btn--active');
+    buttonQueue.classList.remove('library__btn--active');
+
     if (ev.target.nodeName != 'BUTTON') return;
 
     const local = JSON.parse(localStorage.getItem('settings'));

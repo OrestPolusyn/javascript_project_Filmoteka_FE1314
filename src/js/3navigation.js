@@ -30,7 +30,7 @@ function showLibraryPage() {
 // function activeDetailsPage(ev) {
 //     homePageShown.classList.remove('main__hidden');
 //     detailsPageShown.classList.add('main__hidden');
-//     myLibraryPageShown.classList.add('main__hidden');
+//     myLibraryPageShown.classList.remove('main__hidden');
 //     let id = ev.target.getAttribute('alt');
 //     let ApiLink = `https://api.themoviedb.org/3/movie/${id}?api_key=f1943ebda4bde31f3353b960641d381f`;
 //     fetch(ApiLink)
