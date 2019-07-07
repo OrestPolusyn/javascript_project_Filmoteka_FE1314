@@ -93,7 +93,7 @@ img {
 
 .homePage__buttons {
   display: flex;
-  margin: 0 auto;
+  margin: 0 auto 15px;
   width: 73%;
 }
 
@@ -176,6 +176,10 @@ img {
 
   .homePage__movieName {
     font-size: 19px;
+  }
+
+  .homePage__filmList{
+    max-width: 964px;
   }
 }
 

@@ -20,11 +20,11 @@ function showHomePage() {
 }
 
 function showLibraryPage() {
-    homePageShown.classList.add('main__hidden');
-    detailsPageShown.classList.add('main__hidden');
-    myLibraryPageShown.classList.remove('main__hidden');
-    myLibraryPageBtn.classList.add('nav-bar__link-hover');
-    homePageBtn.classList.remove('nav-bar__link-hover');
+  homePageShown.classList.add('main__hidden');
+  detailsPageShown.classList.add('main__hidden');
+  myLibraryPageShown.classList.remove('main__hidden');
+  myLibraryPageBtn.classList.add('nav-bar__link-hover');
+  homePageBtn.classList.remove('nav-bar__link-hover');
 }
 
 // function activeDetailsPage(ev) {
@@ -44,3 +44,23 @@ function showLibraryPage() {
 //         })
 //         .catch(error => console.log(error));
 // }
+
+function activeDetailsPage(movieId, itsLibraryFilm) {
+    homePageShown.classList.add('main__hidden');
+  detailsPageShown.classList.remove('main__hidden');
+  myLibraryPageShown.classList.add('main__hidden');
+
+  if (itsLibraryFilm) {
+    if (localStorage.filmsQueue) {
+      selectFilm = localStorage.filmsQueue.find(el => el.id === movieId);
+    }
+    else{
+        selectFilm = localStorage.filmsWatched.find(el => el.id === movieId);
+    }
+  }
+  // console.log(movieId);
+  selectFilm = renderFilms.find(el => el.id === movieId);
+  showDetails(selectFilm);
+  console.log(selectFilm);
+  
+}
