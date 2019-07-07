@@ -19,6 +19,8 @@ function fetchGenres() {
     .then(res => res.json())
     .then(data => {
       genres = data.genres;
+      console.log('genres 1', genres);
+
     })
     .catch(err => console.log(err));
 }
