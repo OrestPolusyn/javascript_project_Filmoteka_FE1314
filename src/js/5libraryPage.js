@@ -1,12 +1,10 @@
 const cardLibrary = document.querySelector('.library-list');
 
 function drawWatchedFilmList() {
-    console.log('drawWatchedFilmList work');
     buttonWatch.classList.add('library__btn--active');
     buttonQueue.classList.remove('library__btn--active');
     cardLibrary.innerHTML = "";
     const local = JSON.parse(localStorage.getItem('filmsWatched'));
-    console.log(local);
     let fragment = document.createDocumentFragment();
     local.forEach(el =>
         fragment.append(createLibraryCardFunc(el.title, el.backdrop_path, el.id, el.vote_average)),
@@ -15,12 +13,10 @@ function drawWatchedFilmList() {
 }
 
 function drawQueueFilmList() {
-    console.log('drawQueueFilmList work');
     buttonWatch.classList.remove('library__btn--active');
     buttonQueue.classList.add('library__btn--active');
     cardLibrary.innerHTML = "";
     const local = JSON.parse(localStorage.getItem("filmsQueue"));
-    console.log(local);
     let fragment = document.createDocumentFragment();
     local.forEach(el => fragment.append(createLibraryCardFunc(el.title, el.backdrop_path, el.id, el.vote_average)));
     cardLibrary.append(fragment);

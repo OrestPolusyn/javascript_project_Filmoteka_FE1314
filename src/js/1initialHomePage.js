@@ -58,7 +58,7 @@ function getPopularMovies() {
   )
     .then(res => res.json())
     .then(data => {
-      console.log(data.results);
+      // console.log(data.results);
       data.results.forEach(el => {
         fragment.append(createCards(el.title, el.backdrop_path, el.release_date, el.id));
       });

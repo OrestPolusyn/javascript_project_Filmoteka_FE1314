@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-calendar-minus" viewBox="0 0 448 512"><path fill="#77c1bb" d="M124 328c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12H124zm324-216v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></symbol><symbol id="icon-calendar-plus" viewBox="0 0 448 512"><path fill="#77c1bb" d="M336 292v24c0 6.6-5.4 12-12 12h-76v76c0 6.6-5.4 12-12 12h-24c-6.6 0-12-5.4-12-12v-76h-76c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h76v-76c0-6.6 5.4-12 12-12h24c6.6 0 12 5.4 12 12v76h76c6.6 0 12 5.4 12 12zm112-180v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></symbol><symbol id="icon-icon" viewBox="0 0 17 17">
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""/>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?></metadata>
+<image id="icon" width="17" height="17" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA+VBMVEU3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEg3LEgAAAAFS6E0AAAAUXRSTlMAEV+RkF0QCojn+IYJG8/98s0YBs6qHR6tyw1q/ra4Y1va9isxx/zz5X70BNw5t/qrAjXgL+HrIIU4f+IF9/n1it8igK+uoDCh3Z/YPaWjFzvb7PJhAAAAAWJLR0RSDWAtkAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+MHBgstLaLvqTsAAACzSURBVBjTY2AAAkYmZhZWNgYEYOfg5OLi5OaBC/Dy8QsICgrwCwpBBYRFAkXFGBjEJQIlhcECUtIyshApORl5MK2gqKQMEVHhUgXTHGrqMAOVNMCUppa6NtRAJR0wraunzwQRkVczANOGRjLGJmBjTM3ModotAk01LS2trANlbWAO0rS1s7W1s3fQcjSBWeLk7OKqycvgFmjszoAKPAI9VdCEvAK9fVBFtH0D/dAU+XMHAAC2xROU1oQiHQAAAABJRU5ErkJggg=="/>
+</symbol><symbol id="icon-trash-alt" viewBox="0 0 448 512"><path fill="#77c1bb" d="M268 416h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12zM432 80h-82.41l-34-56.7A48 48 0 0 0 274.41 0H173.59a48 48 0 0 0-41.16 23.3L98.41 80H16A16 16 0 0 0 0 96v16a16 16 0 0 0 16 16h16v336a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128h16a16 16 0 0 0 16-16V96a16 16 0 0 0-16-16zM171.84 50.91A6 6 0 0 1 177 48h94a6 6 0 0 1 5.15 2.91L293.61 80H154.39zM368 464H80V128h288zm-212-48h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12z"/></symbol><symbol id="icon-video" viewBox="0 0 576 512"><path fill="#77c1bb" d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"/></symbol></svg>

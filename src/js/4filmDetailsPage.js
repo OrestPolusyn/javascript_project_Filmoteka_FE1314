@@ -77,8 +77,8 @@ function showDetails(selectFilm) {
     }</span></h2>
       <ul class="film-card__info-list info-list">
         <li class="info-list__item">
-          <p class="info-list__keywords">vote / votes</p>
-          <p class="info-list__value">${selectFilm.vote_average} / </p>
+          <p class="info-list__keywords">vote</p>
+          <p class="info-list__value">${selectFilm.vote_average} </p>
         </li>
         <li class="info-list__item">
           <p class="info-list__keywords">popularity</p>

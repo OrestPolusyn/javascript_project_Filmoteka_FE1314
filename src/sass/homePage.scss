@@ -54,6 +54,7 @@ img {
   width: 300px;
   position: relative;
   margin-bottom: 10px;
+  list-style: none;
   &:last-child {
     margin-bottom: 0;
   }
@@ -88,7 +89,7 @@ img {
   font-size: 12px;
   font-weight: 500;
   z-index: 999;
-  bottom: 10px;
+  bottom: 13px;
   left: 12px;
 }
 
@@ -138,8 +139,8 @@ img {
 
 @media (min-width: 768px) {
   .homePage__filmItem {
-    width: 48%;
-    margin: 0 22px 30px 0;
+    width: 470px;
+    margin: 26px 0 20px;
     &:nth-last-child(-n + 2) {
       margin-bottom: 0;
     }
@@ -151,9 +152,6 @@ img {
   .homePage__input::placeholder {
     font-size: 16px;
   }
-
-  // .homePage__filmItem
-  // }
 
   .homePage__inputContainer {
     width: 37%;
@@ -181,8 +179,20 @@ img {
     font-size: 19px;
   }
 
-  .homePage__filmList{
+  .homePage__filmList {
     max-width: 964px;
   }
-}
 
+  .library__filmList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  
+  }
+
+  .myFilmLibraryPage__block ul {
+    width: 980px;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+}
