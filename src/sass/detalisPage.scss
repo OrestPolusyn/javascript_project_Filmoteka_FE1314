@@ -1,4 +1,143 @@
 .detalisPage__block {
-    font-size: 20px;
-    color: aqua;
+  font-family: 'Roboto', sans-serif;
+  color: #372c48;
+}
+
+.film-card {
+  margin: 0 auto;
+  padding: 20px 23px 0;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+
+
+  &__img {
+    margin-bottom: 18px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    font-size: 17px;
+    font-weight: medium;
+  }
+
+  &__about {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  &__btn-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__btn-list {
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    color: #372c488a;
+  }
+}
+
+.info-list {
+  margin-bottom: 19px;
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.015rem;
+  color: #000;
+
+  &__item {
+    display: flex;
+    padding: 6px 0px 2px 17px;
+  }
+
+  &__item:nth-child(odd) {
+    background: #addad68a;
+  }
+
+  &__keywords {
+    width: 100px;
+  }
+
+  &__value {
+    padding-left: 9px;
+  }
+}
+
+.btn {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #372c48;
+  letter-spacing: -0.05rem;
+  cursor: pointer;
+
+  &-list__item {
+    margin-bottom: 10px;
+
+    & svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+.film-card__icon-queue,
+.film-card__icon-watch {
+  color: #77c1bb;
+}
+
+.btn-list__item {
+  width: 200px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .film-card {
+    // padding: 0 23px;
+    flex-direction: row;
+    width: 768px;
+
+    &__img {
+      margin-right: 21px;
+      width: 357px;
+    }
+
+    &__title {
+      margin-top: 9px;
+      letter-spacing: -0.1rem;
+    }
+
+    &__text {
+      letter-spacing: -0.02rem;
+    }
+
+    &__info-list {
+      margin-bottom: 38px;
+    }
+
+    &__btn-list {
+      flex-direction: row;
+    }
+  }
+
+  .btn-list__item:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .film-card {
+    width: 1024px;
+    padding-left: 65px;
+    padding-right: 45px;
+  }
 }

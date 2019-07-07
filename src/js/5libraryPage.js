@@ -1,70 +1,46 @@
 const cardLibrary = document.querySelector('.library-list');
-const buttonWatch = document.querySelector('.library__btn--watch');
-const buttonQueue = document.querySelector('.library__btn--queue');
 
-buttonWatch.addEventListener('click', drawWatchedFilmList);
-buttonQueue.addEventListener('click', drawQueueFilmList);
-
-const settings = [{
-    poster_path: 'dark',
-    title: "cvjfsdkjg",
-    id: 1,
-    vote_average: 7.5
-},
-{
-    poster_path: 'fgdf',
-    title: "fgfdg",
-    id: 4,
-    vote_average: 56
-}];
-
-localStorage.setItem("settings", JSON.stringify(settings));
-
-
-function drawWatchedFilmList(ev) {
-
+function drawWatchedFilmList() {
     buttonWatch.classList.add('library__btn--active');
     buttonQueue.classList.remove('library__btn--active');
-
-    if (ev.target.nodeName != 'BUTTON') return;
-
-    const local = JSON.parse(localStorage.getItem('settings'));
+    cardLibrary.innerHTML = "";
+    const local = JSON.parse(localStorage.getItem('filmsWatched'));
+    let fragment = document.createDocumentFragment();
     local.forEach(el =>
-        createLibraryCardFunc(el.poster_path, el.title, el.id, el.vote_average),
+        fragment.append(createLibraryCardFunc(el.title, el.backdrop_path, el.id, el.vote_average)),
     );
+    cardLibrary.append(fragment);
 }
 
-function drawQueueFilmList(ev) {
-    
-
+function drawQueueFilmList() {
     buttonWatch.classList.remove('library__btn--active');
     buttonQueue.classList.add('library__btn--active');
-
-    if (ev.target.nodeName != "BUTTON") return;
-
+    cardLibrary.innerHTML = "";
     const local = JSON.parse(localStorage.getItem("filmsQueue"));
-    local.forEach(el => createLibraryCardFunc(el.poster_path, el.title, el.id, el.vote_average))
-
+    let fragment = document.createDocumentFragment();
+    local.forEach(el => fragment.append(createLibraryCardFunc(el.title, el.backdrop_path, el.id, el.vote_average)));
+    cardLibrary.append(fragment);
 }
 
-function createLibraryCardFunc(imgPath, filmTitle, movieId, voteAverage) {
-    const li = document.createElement('li');
-    li.classList.add('library__list-item');
-    cardLibrary.append(li);
-
-    const imgFilm = document.createElement('img');
-    imgFilm.setAttribute('src', `https://image.tmdb.org/t/p/w500${imgPath}`);
-    imgFilm.setAttribute('alt', 'poster film');
-    li.append(imgFilm);
+function createLibraryCardFunc(name, imgPath, movieId, voteAverage) {
+    const item = document.createElement('li');
+    item.classList.add('homePage__filmItem');
+  
+    const img = document.createElement('img');
+    img.classList.add('homePage__img');
+    img.setAttribute('src', `https://image.tmdb.org/t/p/w500${imgPath}`);
+  
+    const movieName = document.createElement('p');
+    movieName.classList.add('homePage__movieName');
+    movieName.textContent = name;
 
     const voteFilm = document.createElement('p');
     voteFilm.classList.add('library__vote');
     voteFilm.textContent = voteAverage;
-    li.append(voteFilm);
-
-    const titleFilm = document.createElement('p');
-    titleFilm.classList.add('library__nameFilm');
-    li.append(titleFilm);
-    titleFilm.textContent = filmTitle;
-    console.log(cardLibrary);
-}
+  
+    item.append(img, movieName, voteFilm);
+  
+    item.addEventListener('click', () => activeDetailsPage(movieId, true));
+  
+    return item;
+  }
