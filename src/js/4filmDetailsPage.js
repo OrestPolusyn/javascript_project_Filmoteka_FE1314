@@ -87,7 +87,7 @@ function showDetails(selectFilm) {
 <h2 class="film-card__title"> ${
       selectFilm.title
     }<span class="film-card__release">${
-      selectFilm.release_date.splite('-')[0]
+      selectFilm.release_date.split('-')[0]
     }</span></h2>
       <ul class="film-card__info-list info-list">
         <li class="info-list__item">

@@ -35,9 +35,9 @@ function showLibraryPage() {
 }
 
 function activeDetailsPage(movieId, itsLibraryFilm) {
-  homePageShown.classList.add('main__hidden');
-  detailsPageShown.classList.remove('main__hidden');
-  myLibraryPageShown.classList.add('main__hidden');
+  homePage.classList.add('main__hidden');
+  detailsPage.classList.remove('main__hidden');
+  myLibraryPage.classList.add('main__hidden');
 
   if (itsLibraryFilm) {
     if (localStorage.filmsQueue) {
@@ -47,9 +47,8 @@ function activeDetailsPage(movieId, itsLibraryFilm) {
       selectFilm = localStorage.filmsWatched.find(el => el.id === movieId);
     }
   }
-  // console.log(movieId);
   selectFilm = renderFilms.find(el => el.id === movieId);
   showDetails(selectFilm);
-  console.log(selectFilm);
-
+ 
+ console.log(activeDetailsPage(movieId));
 }

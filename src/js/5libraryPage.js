@@ -2,8 +2,8 @@ const cardLibrary = document.querySelector('.library-list');
 const buttonWatch = document.querySelector('.library__btn--watch');
 const buttonQueue = document.querySelector('.library__btn--queue');
 
-// buttonWatch.addEventListener('click', drawWatchedFilmList);
-// buttonQueue.addEventListener('click', drawQueueFilmList);
+buttonWatch.addEventListener('click', drawWatchedFilmList);
+buttonQueue.addEventListener('click', drawQueueFilmList);
 
 
 function drawWatchedFilmList(ev) {

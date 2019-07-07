@@ -46,8 +46,7 @@ function createCards(name, imgPath, year, movieId) {
 
   item.append(img, movieName);
 
-  // item.addEventListener('click', ()
-  //   => activeDetailsPage(movieId, false));
+  item.addEventListener('click', () => activeDetailsPage(movieId, false));
 
   return item;
 
