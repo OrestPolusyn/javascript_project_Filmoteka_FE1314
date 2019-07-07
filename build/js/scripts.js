@@ -1,4 +1,139 @@
-"use strict";
+'use strict';
+
+var renderFilms;
+var genres;
+var pageNumber = 1;
+var inputValue;
+var form = document.querySelector('.homePage__form');
+var input = document.querySelector('.homePage__input');
+var prevBtn = document.querySelector('.js-prev');
+var nextBtn = document.querySelector('.js-next');
+var homePlaginationNumber = document.querySelector('.homepage__page');
+var list = document.querySelector('.homePage__filmList');
+var popWhenError = document.querySelector('.homePage__error');
+
+function fetchGenres() {
+  fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=f1943ebda4bde31f3353b960641d381f&language=en-US').then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    genres = data.genres;
+  }).catch(function (err) {
+    return console.log(err);
+  });
+}
+
+fetchGenres();
+
+function createCards(name, imgPath, year, movieId) {
+  var item = document.createElement('li');
+  item.classList.add('homePage__filmItem'); // const imgShadow = document.createElement('img');
+  // imgShadow.classList.add('homePage__imgShadow');
+  // imgShadow.setAttribute('src', './images/_Path_.png');
+
+  var img = document.createElement('img');
+  img.classList.add('homePage__img');
+  img.setAttribute('src', "https:/image.tmdb.org/t/p/w500".concat(imgPath));
+  var movieName = document.createElement('p');
+  movieName.classList.add('homePage__movieName');
+  var res = getYearFromDate(year);
+  movieName.textContent = "".concat(name, " (").concat(res, ")");
+  item.append(img, movieName);
+  return item; //   item.addEventListener('click', activeDetailsPage);
+}
+
+function getYearFromDate(string) {
+  var res = string.slice(0, 4);
+  return res;
+}
+
+function getPopularMovies() {
+  var fragment = document.createDocumentFragment();
+  list.innerHTML = '';
+  fetch("https://api.themoviedb.org/3/movie/popular?api_key=f1943ebda4bde31f3353b960641d381f&language=en-US&page=".concat(pageNumber)).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    console.log(data);
+    data.results.forEach(function (el) {
+      fragment.append(createCards(el.title, el.backdrop_path, el.release_date, el.id));
+    });
+    list.append(fragment);
+    renderFilms = data.results;
+  });
+}
+
+getPopularMovies();
+
+function searchFilms(e) {
+  e.preventDefault(); //   console.log(input.value);
+
+  inputValue = input.value;
+  fetchMovies();
+  form.reset();
+}
+
+function fetchMovies() {
+  var fragment = document.createDocumentFragment();
+  list.innerHTML = '';
+  fetch("https://api.themoviedb.org/3/search/movie?api_key=f1943ebda4bde31f3353b960641d381f&language=en-US&page=".concat(pageNumber, "&include_adult=false&query=").concat(inputValue)).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    if (data.results.length < 1) {
+      popWhenError.classList.remove('main__hidden');
+    } else {
+      popWhenError.classList.add('main__hidden');
+    }
+
+    console.log(data);
+    data.results.forEach(function (el) {
+      console.log(createCards(el.title, el.backdrop_path, el.id));
+      fragment.append(createCards(el.title, el.backdrop_path, el.id));
+    });
+    list.append(fragment); //   console.log(list);
+
+    renderFilms = data.results;
+  }).catch(function (err) {
+    return console.log(err);
+  });
+}
+
+function plaginationNavigation(e) {
+  var click = Number(homePlaginationNumber.textContent); //   console.log(pageNumb.textContent);
+
+  if (e.target.textContent === 'Next') {
+    pageNumber += 1;
+    homePlaginationNumber.textContent = pageNumber;
+  }
+
+  if (e.target.textContent === 'Prev') {
+    pageNumber -= 1;
+    homePlaginationNumber.textContent = pageNumber;
+  }
+
+  if (homePlaginationNumber.textContent === '1') {
+    prevBtn.classList.add('transparent');
+  } else {
+    prevBtn.classList.remove('transparent');
+  }
+
+  if (homePlaginationNumber.textContent <= 1) {
+    prevBtn.disabled = true;
+  }
+
+  console.log(pageNumber);
+}
+
+function pageAfterLoading() {
+  if (homePlaginationNumber.textContent === '1') {
+    prevBtn.classList.add('transparent');
+  }
+}
+
+window.onload = pageAfterLoading;
+prevBtn.addEventListener('click', plaginationNavigation);
+prevBtn.addEventListener('click', getPopularMovies);
+nextBtn.addEventListener('click', plaginationNavigation);
+nextBtn.addEventListener('click', getPopularMovies);
+form.addEventListener('submit', searchFilms);
 "use strict";
 "use strict";
 
