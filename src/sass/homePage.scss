@@ -46,11 +46,12 @@ img {
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: 0 auto 28px;
 }
 
 .homePage__filmItem {
-  width: 100%;
+  width: 300px;
   position: relative;
   margin-bottom: 10px;
   &:last-child {
@@ -110,6 +111,7 @@ img {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   cursor: pointer;
+  text-align: center;
 }
 
 .homepage__page {
@@ -172,6 +174,7 @@ img {
 
   .homePage__buttons {
     width: 23%;
+    justify-content: center;
   }
 
   .homePage__movieName {

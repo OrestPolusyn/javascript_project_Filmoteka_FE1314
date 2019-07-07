@@ -15,6 +15,11 @@
   display: flex;
   background-color: #77c1bb;
 }
+
+button, h1 {
+  cursor: pointer;
+}
+
 .nav-list {
   display: flex;
   list-style: none;

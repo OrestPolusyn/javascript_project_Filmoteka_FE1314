@@ -7,6 +7,9 @@ const formSearch = document.querySelector('.homePage__form');
 const homePageBtnLogo = document.querySelector('.header-logo');
 let selectFilm = {};
 
+const buttonWatch = document.querySelector('#js-buttonWatchedFilms');
+const buttonQueue = document.querySelector('#js-buttonQueueFilms');
+
 window.onload = showHomePage();
 
 homePageBtn.addEventListener('click', showHomePage);
@@ -25,13 +28,17 @@ function showHomePage() {
 }
 
 function showLibraryPage() {
-
   homePage.classList.add('main__hidden');
   detailsPage.classList.add('main__hidden');
   formSearch.classList.add('main__hidden');
   myLibraryPage.classList.remove('main__hidden');
   myLibraryPageBtn.classList.add('nav-bar__link-hover');
   homePageBtn.classList.remove('nav-bar__link-hover');
+
+  buttonWatch.addEventListener('click', drawWatchedFilmList);
+  buttonQueue.addEventListener('click', drawQueueFilmList);
+
+  drawQueueFilmList();
 }
 
 function activeDetailsPage(movieId, itsLibraryFilm) {
@@ -57,4 +64,7 @@ function activeDetailsPage(movieId, itsLibraryFilm) {
   const buttonAddRemoveToQueue = document.querySelector('#queue');
   buttonAddRemoveToWatched.addEventListener('click', toggleToWatched);
   buttonAddRemoveToQueue.addEventListener('click', toggleToQueue);
+
+  buttonWatch.removeEventListener('click', drawWatchedFilmList);
+  buttonQueue.removeEventListener('click', drawQueueFilmList);
 }

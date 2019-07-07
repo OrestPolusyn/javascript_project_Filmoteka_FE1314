@@ -19,8 +19,6 @@ function fetchGenres() {
     .then(res => res.json())
     .then(data => {
       genres = data.genres;
-      // console.log('genres 1', genres);
-
     })
     .catch(err => console.log(err));
 }
@@ -30,10 +28,6 @@ fetchGenres();
 function createCards(name, imgPath, year, movieId) {
   const item = document.createElement('li');
   item.classList.add('homePage__filmItem');
-
-  // const imgShadow = document.createElement('img');
-  // imgShadow.classList.add('homePage__imgShadow');
-  // imgShadow.setAttribute('src', './images/_Path_.png');
 
   const img = document.createElement('img');
   img.classList.add('homePage__img');
@@ -49,7 +43,6 @@ function createCards(name, imgPath, year, movieId) {
   item.addEventListener('click', () => activeDetailsPage(movieId, false));
 
   return item;
-
 }
 
 function getYearFromDate(string) {
@@ -65,6 +58,7 @@ function getPopularMovies() {
   )
     .then(res => res.json())
     .then(data => {
+      console.log(data.results);
       data.results.forEach(el => {
         fragment.append(createCards(el.title, el.backdrop_path, el.release_date, el.id));
       });
