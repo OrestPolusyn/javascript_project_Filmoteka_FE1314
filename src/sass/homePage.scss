@@ -1,4 +1,180 @@
-.homePage__block {
-    font-size: 24px;
-    color: coral;
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.homePage__form {
+  width: 100%;
+  box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.23);
+  margin-bottom: 32px;
+}
+
+.homePage__inputContainer {
+  width: 81%;
+  padding-top: 19px;
+  margin: 0 auto;
+  padding-bottom: 23px;
+  &::after {
+    content: '';
+    border-bottom: 2px solid #c7c4c4;
+    display: block;
+    width: 100%;
+  }
+}
+
+.homePage__icon {
+  width: 17px;
+  height: 17px;
+  fill: #000000;
+}
+
+.homePage__input {
+  border: none;
+  min-width: 90%;
+}
+
+.homePage__input::placeholder {
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  font-size: 14.4px;
+}
+
+.homePage__filmList {
+  list-style: none;
+  width: 93%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 28px;
+}
+
+.homePage__filmItem {
+  width: 100%;
+  position: relative;
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.homePage__img {
+  border-radius: 10px;
+  position: relative;
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   display: block;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-image: linear-gradient(rgba(255, 255, 255, 0), #000);
+  // }
+}
+
+// .homePage__imgShadow {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   opacity: 0.8;
+// }
+
+.homePage__movieName {
+  position: absolute;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 999;
+  bottom: 10px;
+  left: 12px;
+}
+
+.homePage__buttons {
+  display: flex;
+  margin: 0 auto;
+  width: 73%;
+}
+
+.homePage__Btn {
+  display: block;
+  padding: 15px 23px 15px 22px;
+  border: 1px solid #dddddd;
+  background-color: #f2f2f2;
+  border-radius: 10%;
+  color: #556270;
+  font-size: 14px;
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.004);
+  margin-right: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.homepage__page {
+  @extend .homePage__Btn;
+  padding: 15px 21px 16px 16px;
+}
+
+.transparent {
+  background-color: #f2f2f200;
+  border: #00000000;
+  color: #55627000;
+}
+
+.js-next {
+  margin-right: 0;
+}
+
+.homePage__error {
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  font-weight: 900;
+  color: #f08080;
+}
+
+@media (min-width: 768px) {
+  .homePage__filmItem {
+    width: 48%;
+    margin: 0 22px 30px 0;
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+
+  .homePage__input::placeholder {
+    font-size: 16px;
+  }
+
+  // .homePage__filmItem
+  // }
+
+  .homePage__inputContainer {
+    width: 37%;
+  }
+
+  .homePage__buttons {
+    width: 31%;
+  }
+
+  .homePage__movieName {
+    font-size: 14/5px;
+  }
+}
+@media (min-width: 1024px) {
+  .homePage__inputContainer {
+    width: 28%;
+  }
+
+  .homePage__buttons {
+    width: 23%;
+  }
+
+  .homePage__movieName {
+    font-size: 19px;
+  }
 }
