@@ -77,18 +77,20 @@ function toggleToWatche() {
   monitorButtonStatusText();
 }
 
-function showDetails(selectFilm ) {
+function showDetails(selectFilm) {
   const detalis = document.querySelector('.detalisPage__block');
   detalis.insertAdjacentHTML(
     'afterbegin',
     `<div class="film-card">
-    <img src=${selectFilm} alt="film-img" class="film-card__img">
+    <img src=${selectFilm.poster_path} alt="film-img" class="film-card__img">
     <div class="film-card__details">
-<h2 class="film-card__title"> ${selectFilm}<span class="film-card__release">${selectFilm}</span></h2>
+<h2 class="film-card__title"> ${
+      selectFilm.title
+    }<span class="film-card__release">${selectFilm.release_date}</span></h2>
       <ul class="film-card__info-list info-list">
         <li class="info-list__item">
           <p class="info-list__keywords">vote / votes</p>
-          <p class="info-list__value">${selectFilm}</p>
+          <p class="info-list__value">${selectFilm.vote_average}</p>
         </li>
         <li class="info-list__item">
           <p class="info-list__keywords">popularity</p>
